@@ -1,0 +1,20 @@
+version: "2"
+
+networks:
+  frontend:
+    external:
+      name: fpm_proxy-tier
+
+services:
+  server:
+    build: landingpage
+    restart: unless-stopped
+    networks:
+      - frontend
+    environment:
+      - VIRTUAL_HOST=www.hibiki.eu
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=www.hibiki.eu
+      - LETSENCRYPT_EMAIL=stefan.weiberg@germandev.org
+    expose:
+      - "80"
