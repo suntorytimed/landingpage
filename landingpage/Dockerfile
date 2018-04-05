@@ -1,2 +1,2 @@
 FROM nginx:alpine
-COPY bbs /usr/share/nginx/html
+COPY hibikicorp /usr/share/nginx/html
